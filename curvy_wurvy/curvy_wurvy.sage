@@ -8,8 +8,6 @@ def Curve25519():
 
 def KDF(master_key, uid):
     user_key = master_key*uid + master_key//uid + uid
-    if not user_key % 2:
-        user_key += 1
     return user_key
 
 def sign(E, data, key):
@@ -21,7 +19,7 @@ def sign(E, data, key):
         except ValueError:
             padding += 1
     signed_point = point*key
-    return signed_point.x() + padding<<256
+    return signed_point.x() + (padding<<256)
 
 def verify(E, data, signature, key):
     real_sig = sign(E, data, key)
@@ -42,7 +40,7 @@ def menu():
 def main():
     print("Welcome to my ECC data signing server!")
     p, E = Curve25519()
-    flag_uid = randint(1, p)
+    flag_uid = randint(1, int(p^(1/4)))
     flag_key = KDF(master_key, flag_uid)
     flag_sig = sign(E, Integer(bytes_to_long(FLAG)), flag_key)
     print(f"Verify the true flag with\nUID: {flag_uid}\nSignature: {flag_sig}")
@@ -50,7 +48,7 @@ def main():
         choice = menu()
         match choice:
             case '1':
-                uid = randint(1, p)
+                uid = randint(1, int(p^(1/4)))
                 print(f"Your user id is: {uid}")
             case '2':
                 try:
