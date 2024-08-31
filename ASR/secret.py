@@ -1,1 +1,0 @@
-FLAG = b'FFCTF{D0nt_m1x_yOUr_k3y5!}'
