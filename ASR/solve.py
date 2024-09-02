@@ -4,14 +4,14 @@ from pwn import remote
 from Crypto.Util.number import bytes_to_long, long_to_bytes
 from Crypto.Util.Padding import pad, unpad
 
-r = remote('localhost', 1234, level='error')
+r = remote('localhost', 8000, level='error')
 r.recvuntil(b': ')
 flag = int(r.recvline())
-r.recvuntil(b': ')
+r.recvuntil(b'?\n')
 r.sendline(b'hi')
 r.recvuntil(b': ')
 c1 = int(r.recvline())
-r.recvuntil(b': ')
+r.recvuntil(b'?\n')
 r.sendline(b'bye')
 r.recvuntil(b': ')
 c2 = int(r.recvline())
