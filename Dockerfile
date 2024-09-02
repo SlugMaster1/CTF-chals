@@ -8,7 +8,7 @@ WORKDIR /app
 COPY ASR /app/ASR
 
 # Generate the flag and set it as an environment variable
-ENV FLAG="{D0nt_m1x_yOUr_k3y5!}"
+ENV FLAG="FFCTF{D0nt_m1x_yOUr_k3y5!}"
 
 # Install necessary dependencies
 RUN pip install pycryptodome
