@@ -1,0 +1,1 @@
+The AES key can be public as long as the IV is secret right?

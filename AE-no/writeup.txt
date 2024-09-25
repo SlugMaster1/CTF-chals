@@ -1,0 +1,1 @@
+Not knowing the IV makes it impossible to determine the plaintext of the first block of data, but since the flag is padded so that it is outside of the first block (16 bytes), you can decrypt the ciphertext with any IV and the flag will be clear.
