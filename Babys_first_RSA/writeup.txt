@@ -1,0 +1,1 @@
+This is a pretty basic rsa vulnerablity. It has a small exponent and no padding so the plaintext can be derived by taking the cube root of the ciphertext.
