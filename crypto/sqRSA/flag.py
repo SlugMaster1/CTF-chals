@@ -1,0 +1,1 @@
+FLAG=b'BCATCTF{Don7_b3_4_squArE_ac6c54f792c90a69b8}'
