@@ -4,7 +4,7 @@ from sympy import isprime
 from sympy.ntheory.modular import crt
 from Crypto.Util.number import long_to_bytes
 
-r = remote('localhost',12345,level='error')
+r = remote('chal.cyberatuc.org',45612,level='error')
 p = 1
 mods = []
 nums = []
