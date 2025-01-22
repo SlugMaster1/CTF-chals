@@ -22,3 +22,6 @@ d = pow(e,-1,phi)
 
 print(f'{phi = }') # It always errors here?!!?!
 print(f'{d = }')
+
+pt = pow(c,d,n)
+assert pt == m
