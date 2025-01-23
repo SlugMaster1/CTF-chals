@@ -18,9 +18,9 @@ c = pow(m, e, n)
 print(f'{c = }')
 
 phi = (p-1)*(q-1)
-d = pow(e,-1,phi)
+d = pow(e,-1,phi) # It always errors here?!!?!
 
-print(f'{phi = }') # It always errors here?!!?!
+print(f'{phi = }')
 print(f'{d = }')
 
 pt = pow(c,d,n)
