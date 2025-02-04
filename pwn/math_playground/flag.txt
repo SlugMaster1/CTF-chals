@@ -1,1 +1,1 @@
-flag{placehoder_flag}
+BCCTF{y0U_mu57_r3411y_h473_maTH}

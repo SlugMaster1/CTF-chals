@@ -1,0 +1,9 @@
+version: 1
+challenges:
+  Hungry Hungry Hippos:
+    author: Cyber@UC / Sean Huggins
+    brief: RE crack hashing
+    flag: file:flag.txt
+    player_files: hungry
+    message: Who's hungry?
+    value: 900

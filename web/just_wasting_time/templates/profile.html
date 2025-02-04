@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="protected-content">
+        {% if username %}
+            <h1>Welcome, {{ username }}!</h1>
+            <p>What a fine day it is!</p>
+            {% if flag %}
+                <p><b>Here is your flag: {{ flag }}</b></p>
+            {% else %}
+                <p>Unfortunatly you are not an admin, but you are welcome to stay as long as you want!</p>
+            {% endif %}
+        {% else %}
+            {% if error %}
+                <div class="error">{{ error }}</div>
+            {% else %} 
+                <p><b> What you you doing here? Get out! </b></p>
+            {% endif %}
+        {% endif %}
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    </div>
+{% endblock %}

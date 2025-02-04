@@ -1,0 +1,9 @@
+version: 1
+challenges:
+  Say Cheese:
+    author: Cyber@UC / Sean Huggins
+    brief: Do you understand how easy this is? I'm sorry you can't do it! I really am!
+    flag: BCCTF{D1d_y0U_h4v3_a_G0ud4_T1m3}
+    player_files: cheese.py
+    message: ChatGPT made this challenge, I think it has a lot of holes...... much like a certain type of food.
+    value: 200

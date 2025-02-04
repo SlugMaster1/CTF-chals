@@ -1,0 +1,9 @@
+version: 1
+challenges:
+  Easy Encrypt:
+    author: Cyber@UC / Sean Huggins
+    brief: Simple 4 byte XOR
+    flag: BCCTF{7H47_w4snt_s0_H4rD}
+    player_files: easy
+    message: RE is fun but these binary things are so weird!
+    value: 300

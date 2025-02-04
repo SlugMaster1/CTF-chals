@@ -1,0 +1,10 @@
+version: 1
+challenges:
+  unhealthy 2 the sequel:
+    author: Cyber@UC / Sean Huggins
+    brief: Command injection with firewall bypass
+    flag: file:flag.txt
+    message: It seems that some people couldn't wait for me to finish before they started hacking. Well now I have a brand new extra-secure firewall in place! Have fun with that!
+    value: 500
+    dockerfile: Dockerfile
+    connection_hint: http://{{event.address}}:{{challenge.port}}

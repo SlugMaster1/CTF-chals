@@ -1,0 +1,9 @@
+version: 1
+challenges:
+  crython:
+    author: Cyber@UC / Sean Huggins
+    brief: Uhh like its solvable. you can side channel with bit counts or use binary polynomial interpolation
+    flag: file:flag.txt
+    player_files: crython.py
+    message:  "Many of Python's features, in addition to its use of indentation, conspire to make Python code highly readable"
+    value: 800

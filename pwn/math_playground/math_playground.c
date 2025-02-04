@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <sys/personality.h>
 
 void add(int a, int b) {
     printf("Result: %d\n", a + b);
@@ -22,9 +23,18 @@ void divide(int a, int b) {
 
 void (*operations[4])(int, int) = {add, subtract, multiply, divide};
 
-int main() {
+int main(int argc, char **argv) {
+    const int old_personality = personality(ADDR_NO_RANDOMIZE);
+    if (!(old_personality & ADDR_NO_RANDOMIZE)) {
+        const int new_personality = personality(ADDR_NO_RANDOMIZE); // Disable ASLR for process
+        if (new_personality & ADDR_NO_RANDOMIZE) {
+            execv(argv[0], argv);
+        }
+    }
     int choice;
     int a, b;
+
+    setvbuf(stdout, NULL, _IONBF, 0);
 
     printf("Choose a function to use:\n");
     printf("0: Add\n");

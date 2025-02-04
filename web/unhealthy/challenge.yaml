@@ -1,0 +1,10 @@
+version: 1
+challenges:
+  unhealthy:
+    author: Cyber@UC / Sean Huggins
+    brief: Command injection
+    flag: file:flag.txt
+    message: I am setting up my web page right now, please don't hack me!
+    value: 200
+    dockerfile: Dockerfile
+    connection_hint: http://{{event.address}}:{{challenge.port}}

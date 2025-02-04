@@ -1,0 +1,11 @@
+challenges:
+  Just Wasting Time:
+    author: Sean Huggins
+    brief: SQL injection with jwt nonesign
+    flag: file:flag.txt
+    message: This web server is a total mess! But at least it works
+    value: 700
+    dockerfile: Dockerfile
+    player_files: just_wasting_time.zip
+    connection_hint: http://{{event.address}}:{{challenge.port}}
+version: 1
